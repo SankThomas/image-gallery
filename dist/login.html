@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The internet's image gallery" />
+    <meta
+      name="keywords"
+      content="image gallery, grater, grater image gallery"
+    />
+    <meta name="theme-color" content="#ba3d07" />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./images/logo_48.png" type="image/x-icon" />
+    <title>Home of the internet's gallery</title>
+  </head>
+  <body>
+    <button class="btn-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <header id="header" class="header">
+      <div class="logo">
+        <a href="./index.html"
+          ><img src="./images/logo.png" alt="grater logo"
+        /></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="./login.html">Log In</a></li>
+          <li><a class="action" href="./signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="login">
+      <div class="overlay-login">
+        <form class="form-control">
+          <input type="text" placeholder="Username" required />
+          <input type="email" placeholder="Enter your email" required />
+          <button class="action">Log In</button>
+          <small
+            >Don't have an account? <a href="./signup.html">Sign Up</a></small
+          >
+        </form>
+      </div>
+    </section>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
