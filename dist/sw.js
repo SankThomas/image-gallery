@@ -1,22 +1,24 @@
-// Check whethe the browser supports service workers
+// Check whether the browser supports serviceWorkers
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('sw.js', { scope: './' })
+    .register('sw.js')
     .then((reg) => {
-      console.log(`Service worker registered`)
+      console.log('Service worker registered')
     })
     .catch((error) => {
-      console.log(`Registration failed`)
+      console.log('Service worker not registered')
     })
 }
 
-// Listen for an install event on the application
+// Listen for the install event
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('v1').then((cache) => {
       return cache.addAll([
+        './',
         './css/style.min.css',
-        './images/antiquites-store.jpg',
+        './images/antiquities-store.jpg',
+        './images/bike.jpg',
         './images/blue-car.jpg',
         './images/cassette.jpg',
         './images/old-school-parking-lot.jpg',
@@ -33,7 +35,7 @@ self.addEventListener('install', (e) => {
   )
 })
 
-// Fetch from server, download and cache in application
+// Fetch new resources, update the cache, and save the resources
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((resp) => {
@@ -54,22 +56,3 @@ self.addEventListener('fetch', (e) => {
     })
   )
 })
-
-/*
-Add this block when you want to update serviceWorkers
-
-self.addEventListener('activate', (e) => {
-  var cacheKeeplist = ['v2'];
-
-  event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(keyList.map((key) => {
-        if (cacheKeeplist.indexOf(key) === -1) {
-          return caches.delete(key);
-        }
-      }));
-    })
-  );
-});
-
-*/
